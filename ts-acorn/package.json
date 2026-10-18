@@ -1,0 +1,53 @@
+{
+  "name": "acorn",
+  "description": "ECMAScript parser",
+  "homepage": "https://github.com/acornjs/acorn",
+  "type": "module",
+  "main": "dist/acorn.js",
+  "types": "dist/acorn.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/acorn.d.ts",
+      "default": "./dist/acorn.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "version": "8.19.0",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "maintainers": [
+    {
+      "name": "Marijn Haverbeke",
+      "email": "marijn@haverbeke.berlin",
+      "web": "https://marijnhaverbeke.nl"
+    },
+    {
+      "name": "Ingvar Stepanyan",
+      "email": "me@rreverser.com",
+      "web": "https://rreverser.com/"
+    },
+    {
+      "name": "Adrian Heine",
+      "web": "http://adrianheine.de"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acornjs/acorn.git"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json && rollup -c rollup.config.mjs",
+    "typecheck": "tsc --noEmit -p .",
+    "test": "node test/run.cjs && node test/corpus.cjs ../acorn/src/*.js",
+    "prepare": "npm run build"
+  },
+  "bin": {
+    "acorn": "bin/acorn"
+  },
+  "devDependencies": {
+    "rollup": "^4.60.1",
+    "typescript": "^5.9.3"
+  }
+}
